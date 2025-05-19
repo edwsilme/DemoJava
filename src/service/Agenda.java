@@ -2,8 +2,6 @@ package service;
 
 import model.Contacto;
 import java.util.ArrayList;
-import java.io.FileWriter;
-import java.io.IOException;
 
 public class Agenda {
     private ArrayList<Contacto> contactos = new ArrayList<>();
@@ -11,13 +9,6 @@ public class Agenda {
     public void agregarContacto(Contacto contacto) {
         contactos.add(contacto);
         System.out.println("Contacto agregado exitosamente.");
-
-        // Guardar en archivo
-        try (FileWriter writer = new FileWriter("contactos.txt", true)) {
-            writer.write(contacto.getNombre() + "," + contacto.getTelefono() + "," + contacto.getEmail() + "\n");
-        } catch (IOException e) {
-            System.out.println("Error al guardar el contacto: " + e.getMessage());
-        }
     }
 
     public void mostrarContactos() {
